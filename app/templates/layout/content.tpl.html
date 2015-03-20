@@ -1,0 +1,23 @@
+<div id="chat">
+  <div id="nickname" ng-hide="chatCtrl.nickname">
+    <form id="set-nickname" class="wrap" >
+      <p>Please type in your nickname and press enter.</p>
+      <input id="nick">
+      <p id="nickname-err">Nickname already in use</p>
+  </form>
+  </div>
+  <div id="connecting" ng-hide="chatCtrl.connected">
+    <div class="wrap">
+      Connecting to socket.io server
+      &nbsp; <i class='fa fa-spinner fa-spin'></i>
+    </div>
+  </div>
+  <div id="messages">
+    <div id="nicknames"><span>Online:</span></div>
+    <div id="lines"></div>
+  </div>
+  <form id="send-message">
+    <input id="message">
+    <button>Send</button>
+  </form>
+</div>
