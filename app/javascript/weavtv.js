@@ -7,6 +7,5 @@
             'weavtv.routes'
         ])
     ;
-
     angular.module('weavtv.routes', ['ui.router']);
 })();

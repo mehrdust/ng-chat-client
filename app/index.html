@@ -27,11 +27,15 @@
         <script src="javascript/chat/chat.module.js"></script>
         <script src="javascript/chat/controllers/chat-controller.js"></script>
         <script src="javascript/chat/services/chat-service.js"></script>
-
+        <script type="text/javascript">
+            var chat = {};
+            chat.moderator = 'mehrdust';
+            chat.members = [];
+            window.chat = chat;
+        </script>
     </head>
     <body ng-controller='ChatController as chatCtrl'>
         <h3>Chatroom demo</h3>
-        <a class='btn btn-primary' ng-click='chatCtrl.send_hello()'>Hello</a>
         <div ui-view="content" ></div>
     </body>
 </html>
