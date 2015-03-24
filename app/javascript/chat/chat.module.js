@@ -7,7 +7,7 @@
 	]);
 
 	angular.module('weavtv.chat.controllers', []);
-	angular.module('weavtv.chat.services', []);
+	angular.module('weavtv.chat.services', ['ngCookies']);
 
 })();
 
