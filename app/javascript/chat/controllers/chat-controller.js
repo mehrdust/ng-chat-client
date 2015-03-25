@@ -21,17 +21,6 @@
 		vmChatController.sendMsg = sendMsg;
 		vmChatController.connect = connect;
 
-		// Handler for new messages
-		ChatService.on('msg_to_room', function (from, msg) {
-			document.getElementById('lines').innerHTML = document.getElementById('lines').innerHTML + '<p><strong>' + from + ': </strong>' + msg + '</p>';
-			scrollBottom();
-		});
-
-		ChatService.on('announcement', function(msg) {
-			console.log(msg);
-			document.getElementById('lines').innerHTML = document.getElementById('lines').innerHTML + '<p><strong>Me: </strong>' + msg + '</p>';
-		});
-
 		function connect() {
 			ChatService.connect();
 			// Handler for connect to socketio
@@ -40,6 +29,16 @@
 				ChatService.emit('join', 'room1');
 				ChatService.emit('nickname', vmChatController.nickname);
 				$cookies.nickname = vmChatController.nickname;
+			});
+			// Handler for new messages
+			ChatService.on('msg_to_room', function (from, msg) {
+				document.getElementById('lines').innerHTML = document.getElementById('lines').innerHTML + '<p><strong>' + from + ': </strong>' + msg + '</p>';
+				scrollBottom();
+			});
+			// Handler for room announcements
+			ChatService.on('announcement', function(msg) {
+				console.log(msg);
+				document.getElementById('lines').innerHTML = document.getElementById('lines').innerHTML + '<p><strong>Me: </strong>' + msg + '</p>';
 			});
 		}
 
